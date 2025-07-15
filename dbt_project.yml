@@ -1,0 +1,26 @@
+
+name: 'dbt_bdd_automation'
+version: '1.0'
+config-version: 2
+
+profile: 'default'
+
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+models:
+  dbt_bdd_automation:
+    +materialized: view
+
+sources:
+  - name: raw
+    tables:
+      - name: user_profiles

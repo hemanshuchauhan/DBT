@@ -1,0 +1,19 @@
+
+version: 2
+
+models:
+  - name: user_profiles
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+
+      - name: email
+        tests:
+          - not_null
+
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['active', 'inactive']
